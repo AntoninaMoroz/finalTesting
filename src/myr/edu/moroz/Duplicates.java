@@ -17,16 +17,12 @@ import java.util.stream.Stream;
     public class Duplicates {
 
         public  static  boolean hasDuplicates(int[] array){
-            Arrays.sort(array);
-            int prevElem = array[0];
-            for (int i = 1; i < array.length; ++i) {
-                if (array[i] == prevElem) {
-                    return true;
-                }
-                prevElem = array[i];
+                List<Integer> list = Arrays.stream(array)
+                        .boxed()
+                        .distinct()
+                        .collect(Collectors.toList());
+                return  list.size()!= array.length;
             }
-            return  false;
-        }
 
         public static void main(String[] args) {
             int[] array = {1,5,3,6,2,9,33,21};
