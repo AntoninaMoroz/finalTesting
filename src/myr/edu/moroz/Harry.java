@@ -43,9 +43,6 @@ public class Harry {
                 properNames[i] += properNames[i];
             }
         }
-        for (int i = 0; i < 20; i++) {
-            System.out.println(properNames[i]);
-        }
 
             // clean from a punctuation signs (Use RegEx)
 
@@ -114,33 +111,11 @@ public class Harry {
 
 }
 /* result:
+----------------------------
+ HEAD for the task 1
+ First 20 pairs and names
+-----------------------------------
 
-HarryHarry
-PotterPotter
-and
-the
-Sorcerer'sSorcerer's
-StoneStone
-
-
-CHAPTER
-ONEONE
-
-
-THE
-BOYBOY
-WHOWHO
-LIVEDLIVED
-
-
-Mr.
-Mrs.Mrs.
-Dursley,Dursley,
-of
-number
-four,
-PrivetPrivet
-Drive,Drive,
 the=3628
 and=1919
 to=1856
