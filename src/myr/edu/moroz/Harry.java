@@ -1,6 +1,7 @@
 package myr.edu.moroz;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -22,6 +23,8 @@ public class Harry {
 
         String text = new String(Files.readAllBytes(Paths.get("/Users/User/Desktop/Java/harry.txt")));
 
+        //  Find all the proper names
+
         String[] words = text.split(" ");
 
         String stringOfDistincts = "";
@@ -40,9 +43,10 @@ public class Harry {
             if ((distincts[i].charAt(0) > 'A') && (distincts[i].charAt(0) < 'Z')) {
                 distincts[i] = "\n" + distincts[i];
             }
+
             System.out.println(properNames);
 
-
+        }
             // clean from a punctuation signs (Use RegEx)
 
             text = text.toLowerCase().replaceAll("[^A-Za-z ]", "");
@@ -86,7 +90,26 @@ public class Harry {
             // Find  the first 20 pairs
 
             sorted.entrySet().stream().limit(20).forEach(System.out::println);
+
+        //Create a fine header for the file
+
+        String sorted20 = "----------------------------" + "\n"
+                + " HEAD for the task 1" + "\n"
+                + " First 20 pairs and names" + "\n"
+                + "-----------------------------------" + "\n";
+        int counter = 0;
+
+        //First 20 pairs and names write into to a file test.txt
+
+        for (Map.Entry<String,Integer> entry : sorted.entrySet()){
+            counter++;
+            sorted20 += entry.getKey() + " " + entry.getValue() + "\n";
+            if (counter == 20) break;
         }
-    }
+        String sortedToString = sorted.toString();
+        Files.write(Paths.get("/Users/User/Desktop/Java/exam.txt"),
+                sorted20.getBytes(StandardCharsets.UTF_8));
+
+        }
 
 }

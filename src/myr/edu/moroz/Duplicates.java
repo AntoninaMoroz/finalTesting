@@ -14,17 +14,30 @@ import java.util.stream.Stream;
  * @class Duplicates
  * @since 19.04.2021 - 19.22
  **/
-public class Duplicates {
+    public class Duplicates {
+
         public  static  boolean hasDuplicates(int[] array){
             Arrays.sort(array);
-            Long distinctCount = Stream.of(array).distinct().count();
-            return array.length != distinctCount;
+            int prevElem = array[0];
+            for (int i = 1; i < array.length; ++i) {
+                if (array[i] == prevElem) {
+                    return true;
+                }
+                prevElem = array[i];
+            }
+            return  false;
         }
 
-        public static void main(String[] args {
+        public static void main(String[] args) {
             int[] array = {1,5,3,6,2,9,33,21};
             System.out.println(hasDuplicates(array));  // false
             array[5] = 1;
-            System.out.println(hasDuplicates (array)); // true
+            System.out.println(hasDuplicates(array)); // true
         }
+    }
+
+/* result:
+false
+true
+ */
 
