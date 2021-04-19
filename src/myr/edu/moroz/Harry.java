@@ -35,18 +35,18 @@ public class Harry {
                 stringOfDistincts += words[i] + " ";
             }
         }
-        String[] distincts = stringOfDistincts.split(" ");
+        String[] properNames = stringOfDistincts.split(" ");
 
-        int properNames = 0;
 
-        for (int i = 0; i < distincts.length; i++) {
-            if ((distincts[i].charAt(0) > 'A') && (distincts[i].charAt(0) < 'Z')) {
-                distincts[i] = "\n" + distincts[i];
+        for (int i = 0; i < properNames.length; i++) {
+            if ((properNames[i].charAt(0) > 'A') && (properNames[i].charAt(0) < 'Z')) {
+                properNames[i] += properNames[i];
             }
-
-            System.out.println(properNames);
-
         }
+        for (int i = 0; i < 20; i++) {
+            System.out.println(properNames[i]);
+        }
+
             // clean from a punctuation signs (Use RegEx)
 
             text = text.toLowerCase().replaceAll("[^A-Za-z ]", "");
